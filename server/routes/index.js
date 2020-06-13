@@ -10,5 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/ingredients', ingredients.getIngredients);
 router.get('/ingredients/:id', ingredients.getIngredient);
 router.post('/ingredients/create', ingredients.createIngredient);
+router.post('/ingredients/:id', ingredients.updateIngredient);
+router.delete('/ingredients/:id', ingredients.deleteIngredient);
 
 module.exports = router;
