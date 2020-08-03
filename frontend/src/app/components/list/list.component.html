@@ -1,1 +1,47 @@
 <p>list works!</p>
+<div>
+    <h3>List</h3>
+    <br>
+    <mat-card>
+        <button mat-raised-button color="primary" routerLink="/create">Add a new Ingredient</button>
+        <br><br>
+        <mat-divider></mat-divider>
+        <br>
+        <table mat-table [dataSource]="ingredients">
+            <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="isInPantry">
+                <th mat-header-cell *matHeaderCellDef>isInPantry</th>
+                <td mat-cell *matCellDef="let element">{{element.isInPantry}}</td>
+            </ng-container>
+            <ng-container matColumnDef="net">
+                <th mat-header-cell *matHeaderCellDef>net</th>
+                <td mat-cell *matCellDef="let element">{{element.net}}</td>
+            </ng-container>
+            <ng-container matColumnDef="metric">
+                <th mat-header-cell *matHeaderCellDef>metric</th>
+                <td mat-cell *matCellDef="let element">{{element.metric}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Last Edited">
+                <th mat-header-cell *matHeaderCellDef>Last Edited</th>
+                <td mat-cell *matCellDef="let element">{{element.editedDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Created">
+                <th mat-header-cell *matHeaderCellDef>Created</th>
+                <td mat-cell *matCellDef="let element">{{element.createdDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
+                <td mat-cell *matCellDef="let element" class="mat-column-right">
+                    <button mat-button color="primary" (click)="editIngredient(element._id)">Edit</button>
+                    <button mat-button color="warn" (click)="deleteIngredient(element._id)">Delete</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card>
+</div>
+
