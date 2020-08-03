@@ -1,1 +1,34 @@
 <p>create works!</p>
+<div>
+    <br>
+    <mat-card>
+        <section class="mat-typography">
+            <h3>Add a new Ingredient</h3>
+        </section>
+        <mat-divider></mat-divider>
+        <br>
+        <form [formGroup]='createForm' class='create-form'>
+            <mat-form-field class="field-full-width">
+                <input matInput placeHolder="Ingredient Name" formControlName="name" #name>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <mat-select placeholder="False" formControlName="isInPantry" #isInPantry>
+                    <mat-option value="True">True</mat-option>
+                    <mat-option value="False">False</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <input matInput placeHolder="Net" formControlName="net" #net>
+            </mat-form-field>
+            <mat-form-field class="field-full-width">
+                <input matInput placeHolder="Metric" formControlName="metric" #metric>
+            </mat-form-field>
+            <br><br>
+            <button mat-raised-button color="accent" routerLink="/list">Back</button>
+            <button type="submit" (click)="addIngredient(name.value,isInPantry.value,net.value,metric.value)" 
+            [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+        </form>
+    </mat-card>
+</div>
+
+

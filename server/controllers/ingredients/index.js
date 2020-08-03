@@ -23,8 +23,11 @@ var getIngredient = function(req,res){
 };
 
 var updateIngredient = function(req,res){
+    console.log("Trying to update");
     Ingredient.findById(req.params.id, function(err,ingredient){
+        console.log("Trying to update");
         if(err){res.send(500,err);}
+        if(err){res.send(404,err);}
 
         if(req.body.name){ ingredient.name = req.body.name; }
         if(req.body.isInPantry){ingredient.isInPantry = req.body.isInPantry; }

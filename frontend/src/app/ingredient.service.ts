@@ -19,17 +19,26 @@ export class IngredientService {
     return this.http.get(`${this.uri}/api/ingredients/${id}`);
   }
 
-  createIngredient(name){
+  createIngredient(name,isInPantry, net, metric){
     const ingredient = {
       name: name,
+      isInPantry: isInPantry,
+      net: net,
+      metric: metric,
+      editedDate: Date.now,
+      createdDate: Date.now,
     }
     console.log("Creating new ingredient " + ingredient.name);
     return this.http.post(`${this.uri}/api/ingredients/create`, ingredient);
   }
 
-  updateIngredient(id, name){
+  updateIngredient(id, name, isInPantry, net, metric){
     const ingredient ={
       name: name,
+      isInPantry: isInPantry,
+      net: net,
+      metric: metric,
+      editedDate: Date.now,
     }
     console.log("Updating existing ingredient " + ingredient.name);
     return this.http.put(`${this.uri}/api/ingredients/${id}`, ingredient)
