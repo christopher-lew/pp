@@ -34,8 +34,8 @@ var updateIngredient = function(req,res){
         // Will need to develop this function
         if(req.body.net){ingredient.net = req.body.net; }
         if(req.body.metric){ingredient.metric = req.body.metric; }
-        if(req.body.editedDate){ingredient.editedDate = Date.now}
-
+        ingredient.editedDate = Date.now();
+        console.log(Date.now());
         ingredient.save(function(err, ingredient){
             if(err){res.send(500,err);}
             res.json(200,ingredient);

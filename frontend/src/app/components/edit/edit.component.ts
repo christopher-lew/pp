@@ -47,6 +47,7 @@ export class EditComponent implements OnInit {
       isInPantry= true;
     else
       isInPantry = false;
+    var edited = true;
     this.ingredientService.updateIngredient(this.id, name, isInPantry, net, metric)
     .subscribe( () => {
       this.snackBar.open('Ingredient updated successfully', 'OK', {
