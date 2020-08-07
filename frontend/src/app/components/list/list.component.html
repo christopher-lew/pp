@@ -1,6 +1,6 @@
-<p>list works!</p>
+<h1>Pantry Problems</h1>
 <div>
-    <h3>List</h3>
+    <h3>Pantry</h3>
     <br>
     <mat-card>
         <button mat-raised-button color="primary" routerLink="/create">Add a new Ingredient</button>
@@ -13,25 +13,25 @@
                 <td mat-cell *matCellDef="let element">{{element.name}}</td>
             </ng-container>
             <ng-container matColumnDef="isInPantry">
-                <th mat-header-cell *matHeaderCellDef>isInPantry</th>
+                <th mat-header-cell *matHeaderCellDef>Pantry?</th>
                 <td mat-cell *matCellDef="let element">{{element.isInPantry}}</td>
             </ng-container>
             <ng-container matColumnDef="net">
-                <th mat-header-cell *matHeaderCellDef>net</th>
+                <th mat-header-cell *matHeaderCellDef>Net</th>
                 <td mat-cell *matCellDef="let element">{{element.net}}</td>
             </ng-container>
             <ng-container matColumnDef="metric">
-                <th mat-header-cell *matHeaderCellDef>metric</th>
+                <th mat-header-cell *matHeaderCellDef>Metric</th>
                 <td mat-cell *matCellDef="let element">{{element.metric}}</td>
             </ng-container>
-            <ng-container matColumnDef="Last Edited">
+            <!-- <ng-container matColumnDef="Last Edited">
                 <th mat-header-cell *matHeaderCellDef>Last Edited</th>
                 <td mat-cell *matCellDef="let element">{{element.editedDate}}</td>
             </ng-container>
             <ng-container matColumnDef="Created">
                 <th mat-header-cell *matHeaderCellDef>Created</th>
                 <td mat-cell *matCellDef="let element">{{element.createdDate}}</td>
-            </ng-container>
+            </ng-container> -->
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
                 <td mat-cell *matCellDef="let element" class="mat-column-right">

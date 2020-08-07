@@ -11,7 +11,7 @@ import { IngredientService } from '../../ingredient.service';
 export class ListComponent implements OnInit {
 
   ingredients: Ingredient[];
-  displayedColumns = ['Name', 'isInPantry', 'net', 'metric', 'Last Edited', 'Created', 'actions'];
+  displayedColumns = ['Name', 'isInPantry', 'net', 'metric', /*'Last Edited', 'Created',*/ 'actions'];
 
   constructor(private ingredientService: IngredientService, private router: Router) { }
 
