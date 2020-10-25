@@ -15,7 +15,7 @@ export class CreateComponent implements OnInit {
   constructor(private ingredientService: IngredientService, private fb: FormBuilder, private router: Router) {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
-      isInPantry: '',
+      isInPantry: this.isInPantry,
       net: '',
       metric:'',
       editedDate: Date.now,
@@ -23,12 +23,25 @@ export class CreateComponent implements OnInit {
     })
   }
 
-  addIngredient(name, isInPantry, net, metric){
-    if(isInPantry = "True")
-      isInPantry= true;
-    else
-      isInPantry = false;
-    this.ingredientService.createIngredient(name, isInPantry, net, metric).subscribe(()=>{
+  isInPantry;
+  truePantry(){
+    this.isInPantry = true;
+    console.log("True");
+  }
+
+  falsePantry(){
+    this.isInPantry = false;
+    console.log("False");
+  }
+
+  addIngredient(name, net, metric){
+    console.log("Test 1");
+    console.log();
+    //console.log(isInPantry);
+    console.log(this.isInPantry);
+    //if(this.isInPantry == "True")
+   
+    this.ingredientService.createIngredient(name, this.isInPantry, net, metric).subscribe(()=>{
       // Function call. So after this above function is ran, it'll redirect you back to the list page.
       this.router.navigate(['/list']);
     })
