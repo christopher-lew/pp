@@ -1,32 +1,39 @@
 <p>edit works!</p>
 <div>
     <br>
-    <mat-card>
+    <mat-card class="card">
         <section class="mat-typography">
-            <h3>Updating an Ingredient</h3>
+            <h3>Updating an Ingredient...</h3>
         </section>
         <mat-divider></mat-divider>
         <br>
-        <form [formGroup]="updateForm" class="edit-form">
-            <mat-form-field class="field-full-width">
+        <form [formGroup]="updateForm" class="edit-form card-body">
+            <mat-form-field appearance="outline">
+                <mat-label for='nameInput' class="formLabel">Name</mat-label>
                 <input matInput placeHolder="Ingredient Name" formControlName="name" #name>
             </mat-form-field>
-            <mat-form-field class="field-full-width">
-                <mat-select placeholder="False" formControlName="isInPantry" #isInPantry>
-                    <mat-option value="True">True</mat-option>
-                    <mat-option value="False">False</mat-option>
-                </mat-select>
+            <br>
+            <div class="form-group">
+                <mat-radio-group id="isInPantry" formControlName="isInPantry" #isInPantry>
+                    <mat-label for='isInPanty' class="formLabel">Is this currently in your pantry?</mat-label>
+                    <br>
+                    <mat-radio-button class="radioButt" value="True" [checked]="isTruePantry()" (change)="truePantry()">True </mat-radio-button>
+                    <mat-radio-button class="radioButt" value="False" [checked]="isFalsePantry()" (change)="falsePantry()">False</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label for='netInput' class="formLabel">Net</mat-label>
+                <input matInput type="text" id="netInput" placeholder="Net"  formControlName="net" #net>
             </mat-form-field>
-            <mat-form-field class="field-full-width">
-                <input matInput placeHolder="Net" formControlName="net" #net>
-            </mat-form-field>
-            <mat-form-field class="field-full-width">
-                <input matInput placeHolder="Metric" formControlName="metric" #metric>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label for='metricInput' class="formLabel">Metric</mat-label>
+                <input matInput type="text" id="metricInput" placeholder="Metric" formControlName="metric" #metric>
             </mat-form-field>
             <mat-divider></mat-divider>
             <br><br>
             <button mat-raised-button color="primary" routerLink="/list">Back</button>
-            <button type="submit" (click)="updateIngredient(name.value, isInPantry.value, net.value, metric.value)"
+            <button type="submit" (click)="updateIngredient(name.value, net.value, metric.value)"
             [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
         </form>
     </mat-card>

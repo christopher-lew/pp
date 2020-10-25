@@ -33,6 +33,7 @@ export class IngredientService {
   }
 
   updateIngredient(id, name, isInPantry, net, metric){
+    console.log("Ingredient Update: "+ isInPantry);
     const ingredient ={
       name: name,
       isInPantry: isInPantry,

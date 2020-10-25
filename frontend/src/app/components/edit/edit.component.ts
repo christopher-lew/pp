@@ -20,13 +20,41 @@ export class EditComponent implements OnInit {
     this.createForm();
   }
 
+  isInPantry;
+  truePantry(){
+    this.isInPantry = true;
+    console.log("True");
+  }
+
+  falsePantry(){
+    this.isInPantry = false;
+    console.log("False");
+  }
+
+  setPantry(isInPantry){
+    if(isInPantry){
+      this.truePantry();
+      // Check True Button
+    }else{
+      this.isInPantry
+    }
+  }
+
+  isTruePantry(){
+    return this.isInPantry;
+  }
+
+  isFalsePantry(){
+    return !this.isInPantry;
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.ingredientService.getIngredientById(this.id).subscribe( res => {
         this.ingredient = res;
         this.updateForm.get('name').setValue(this.ingredient.name);
-        this.updateForm.get('isInPantry').setValue(this.ingredient.isInPantry);
+        this.setPantry(this.ingredient.isInPantry);
         this.updateForm.get('net').setValue(this.ingredient.net);
         this.updateForm.get('metric').setValue(this.ingredient.metric);
       })
@@ -42,13 +70,10 @@ export class EditComponent implements OnInit {
     })
   }
 
-  updateIngredient(name, isInPantry, net, metric){
-    if(isInPantry = "True")
-      isInPantry= true;
-    else
-      isInPantry = false;
+  updateIngredient(name, net, metric){
+    console.log(this.isInPantry);
     var edited = true;
-    this.ingredientService.updateIngredient(this.id, name, isInPantry, net, metric)
+    this.ingredientService.updateIngredient(this.id, name, this.isInPantry, net, metric)
     .subscribe( () => {
       this.snackBar.open('Ingredient updated successfully', 'OK', {
         duration: 3000,

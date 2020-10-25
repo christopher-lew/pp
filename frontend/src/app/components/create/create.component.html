@@ -1,4 +1,4 @@
-<div>
+<div class="page">
     <br>
     <mat-card class="card">
         <section class="mat-typography">
@@ -7,31 +7,17 @@
         <mat-divider></mat-divider>
         <br>
         <form [formGroup]='createForm' class='create-form card-body'>
-            <!-- <div class="form-group">
-                <label for='nameInput' class="formLabel">Name</label>
-                <input type="text" class='form-control' id="nameInput" placeholder="Ingredient Name"  formControlName="name" #name>
-            </div> -->
             <mat-form-field appearance="outline">
                 <mat-label for='nameInput' class="formLabel">Name</mat-label>
                 <input matInput placeHolder="Name" formControlName="name" #name>
             </mat-form-field>
-            <!-- <div class="form-group">
-                <label for="pantryInput" class="formLabel">Is this currently in your pantry?</label>
-                <div class="form-check" name="isInPantry" #isInPantry>
-                    <input type="radio" class="form-check-input" name="isInPantry" id='trueRadio' value="True">
-                    <label for="trueRadio" class="form-check-label formLabel">True</label>
-                    <input type="radio" class="form-check-input" name="isInPantry" id='falseRadio' value="False">
-                    <label for="falseRadio" class="form-check-label formLabel">False</label>
-                </div>
-            </div> -->
             <br>
-
             <div class="form-group">
                 <mat-radio-group id="isInPantry" formControlName="isInPantry" #isInPantry>
                     <mat-label for='isInPanty' class="formLabel">Is this currently in your pantry?</mat-label>
                     <br>
-                    <mat-radio-button class="radioButt" value="True" (change)="truePantry()">True </mat-radio-button>
-                    <mat-radio-button class="radioButt" value="False" (change)="falsePantry()">False</mat-radio-button>
+                    <mat-radio-button class="radioButt" value="true"  (change)="truePantry()">True </mat-radio-button>
+                    <mat-radio-button class="radioButt" value="false" (change)="falsePantry()">False</mat-radio-button>
                 </mat-radio-group>
             </div>
             <mat-form-field appearance="outline">
@@ -43,22 +29,6 @@
                 <mat-label for='metricInput' class="formLabel">Metric</mat-label>
                 <input matInput type="text" id="metricInput" placeholder="Metric" formControlName="metric" #metric>
             </mat-form-field>
-            <!-- <mat-form-field class="field-full-width">
-                <p id="nameLabel" >Name:</p>
-                <input matInput id="nameInput" placeHolder="Ingredient Name" formControlName="name" #name>
-            </mat-form-field> -->
-            <!-- <mat-form-field class="field-full-width">
-                <mat-select placeholder="False" formControlName="isInPantry" #isInPantry>
-                    <mat-option value=Boolean.True>True</mat-option>
-                    <mat-option value="False">False</mat-option>
-                </mat-select>
-            </mat-form-field> -->
-            <!-- <mat-form-field class="field-full-width">
-                <input matInput placeHolder="Net" formControlName="net" #net>
-            </mat-form-field>
-            <mat-form-field class="field-full-width">
-                <input matInput placeHolder="Metric" formControlName="metric" #metric>
-            </mat-form-field> -->
             <br><br>
             <button mat-raised-button color="accent" routerLink="/list">Back</button>
             <button type="submit" (click)="addIngredient(name.value, net.value,metric.value)" 

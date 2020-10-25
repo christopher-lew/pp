@@ -28,21 +28,24 @@ var updateIngredient = function(req,res){
         console.log("Trying to update");
         if(err){res.send(500,err);}
         if(err){res.send(404,err);}
-
         if(req.body.name){ ingredient.name = req.body.name; }
-        if(req.body.isInPantry){ingredient.isInPantry = req.body.isInPantry; }
+        ingredient.isInPantry = req.body.isInPantry; 
         // Will need to develop this function
         if(req.body.net){ingredient.net = req.body.net; }
         if(req.body.metric){ingredient.metric = req.body.metric; }
+        
         ingredient.editedDate = Date.now();
-        console.log(Date.now());
         ingredient.save(function(err, ingredient){
             if(err){res.send(500,err);}
             res.json(200,ingredient);
         })
     });
 }
-
+/*
+var bulkDeleteIngredient = function(idList){
+    forEach(idList).deleteIngredient();
+}
+*/
 var deleteIngredient = function(req,res){
     Ingredient.findByIdAndRemove(req.params.id, function(err,ingredient){
         if(err){res.send(500,err);}
