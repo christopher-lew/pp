@@ -28,3 +28,14 @@ td.mat-cell{
     margin-left: 10%;
     margin-right: 10%;
 }
+
+.hoverTable{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.hoverTable tr:hover{
+    transition: 0.75s;
+    background-color: #c1ddfc;
+}
